@@ -21,7 +21,54 @@
   <audio data-key="P" src="sounds/PUIPUI-P-good.wav"></audio>
   <audio data-key="PUI" src="sounds/PUIPUI-PUI-good.wav"></audio>
 <script>
-
+  const moles = {
+  "ア": { signal: ["PUI", "PUI", "P", "PUI", "PUI"]},
+  "イ": { signal: ["P", "PUI"]},
+  "ウ": { signal: ["P", "P", "PUI"]},
+  "エ": { signal: ["PUI", "P", "PUI", "PUI", "PUI"]},
+  "オ": { signal: ["P", "PUI", "P", "P", "P"]},
+  "カ": { signal: ["P", "PUI", "P", "P"]},
+  "キ": { signal: ["PUI", "P", "PUI", "P", "P"]},
+  "ク": { signal: ["PUI", "P", "PUI", "P", "P" ]},
+  "ケ": { signal: ["P", "P", "P", "PUI"]},
+  "コ": { signal: ["PUI", "PUI", "PUI", "PUI"]},
+  "サ": { signal: ["PUI", "P", "PUI", "P", "PUI"]},
+  "シ": { signal: ["PUI", "PUI", "P", "PUI", "P"]},
+  "ス": { signal: ["PUI", "PUI", "PUI", "P", "PUI", ]},
+  "セ": { signal: ["P", "PUI", "PUI", "PUI", "P" ]},
+  "ソ": { signal: ["PUI", "PUI", "PUI", "P"]},
+  "タ": { signal: ["PUI", "P"]},
+  "チ": { signal: ["P", "P", "PUI", "P" ]},
+  "ツ": { signal: ["P", "PUI","PUI", "P"]},
+  "テ": { signal: ["P", "PUI", "P", "PUI", "PUI", ]},
+  "ト": { signal: ["P", "P", "PUI", "P", "P"]},
+  "ナ": { signal: ["P", "PUI", "P",]},
+  "ニ": { signal: ["PUI", "P", "PUI", "P"]},
+  "ヌ": { signal: ["P", "P", "P", "P"]},
+  "ネ": { signal: ["PUI", "PUI", "P", "PUI"]},
+  "ノ": { signal: ["P", "P", "PUI", "PUI"]},
+  "ハ": { signal: ["PUI", "P","P","P"]},
+  "ヒ": { signal: ["PUI", "PUI","P","P","PUI"]},
+  "フ": { signal: ["PUI", "PUI","P","P",]},
+  "ヘ": { signal: ["P"]},
+  "ホ": { signal: ["PUI", "P", "P"]},
+  "マ": { signal: ["PUI", "P","P","PUI"]},
+  "ミ": { signal: ["P","P","PUI","P","PUI",]},
+  "ム": { signal: ["PUI"]},
+  "メ": { signal: ["PUI", "P", "P", "PUI"]},
+  "モ": { signal: ["PUI", "PUI"]},
+  "ヤ": { signal: ["PUI", "PUI"]},
+  "ユ": { signal: ["PUI", "PUI"]},
+  "ヨ": { signal: ["PUI", "PUI"]},
+  "ラ": { signal: ["PUI", "PUI"]},
+  "リ": { signal: ["PUI", "PUI"]},
+  "ル": { signal: ["PUI", "PUI"]},
+  "レ": { signal: ["PUI", "PUI"]},
+  "ロ": { signal: ["PUI", "PUI"]},
+  "ワ": { signal: ["PUI", "PUI"]},
+  "ヲ": { signal: ["PUI", "PUI"]},
+  "ン": { signal: ["PUI", "PUI"]},
+  }
   const hiraToKANA = (text) => {
     return text.replace(/[\u3041-\u3096]/g, ch =>
       String.fromCharCode(ch.charCodeAt(0) + 0x60)
@@ -43,7 +90,6 @@
       })
     }
   }
-
   async function molesTest () {
     const text = "あいう";
     const moles = [

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <section>
+    <h1>PUIPUI音声</h1>
+    <button onclick="testFunc('P')">P</button>
+    <button onclick="testFunc('PUI')">PUI</button>
+    <button onclick="molesTest()">test</button>
+    <div>
+      <h2>テスト文章読み上げ</h2>
+      <input id="readJS" type="text"/>
+    </div>
+  </section>
+
+  <audio data-key="P" src="sounds/PUIPUI-P-good.wav"></audio>
+  <audio data-key="PUI" src="sounds/PUIPUI-PUI-good.wav"></audio>
+<script>
+
+  const hiraToKANA = (text) => {
+    return text.replace(/[\u3041-\u3096]/g, ch =>
+      String.fromCharCode(ch.charCodeAt(0) + 0x60)
+    );
+  }
+
+  const oneMojiPlay = async(audios) => {
+    for (const audio of audios ) {
+      await new Promise((resolve, reject) => {
+        if(audio){
+          audio.play();
+          audio.addEventListener('ended', async () => {
+          resolve();
+        });
+        } else {
+          console.log("error")
+          reject();
+        }
+      })
+    }
+  }
+
+  async function molesTest () {
+    const text = "あいう";
+    const moles = [
+    { id:1 , kana: "ア",  signal: ["PUI", "PUI", "P", "PUI", "PUI"] }
+    ];
+    const targetSignal = moles[0].signal;
+    const audios = targetSignal.map(cry => {
+      return document.querySelector(`audio[data-key="${cry}"]`);
+    })
+    await oneMojiPlay(audios);
+  }
+
+  function testFunc (mol) {
+      const audio = document.querySelector(`audio[data-key="${mol}"]`);
+      audio.play();
+  }
+</script>
+<script src="./speech.js"></script>
+</body>
+</html>
